@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+ body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #008CBA; /* Teal background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.login-container {
+    background-color: #ffffff; /* White form background */
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-form h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 14px;
+}
+
+.input-group input[type="email"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.input-group input[type="email"]::placeholder,
+.input-group input[type="password"]::placeholder {
+    color: #aaa;
+}
+
+.input-group-inline {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+    color: #555;
+}
+
+.input-group-inline input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px; /* Adjust size as needed */
+    height: 16px; /* Adjust size as needed */
+    accent-color: #007bff; /* Color for the checkbox tick */
+}
+
+.checkbox-label {
+    font-weight: normal;
+    margin-bottom: 0; /* Reset margin from .input-group label */
+}
+
+.btn-signin {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff; /* Blue sign-in button */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.btn-signin:hover {
+    background-color: #0056b3;
+}
+
+.links {
+    text-align: center;
+    font-size: 14px;
+}
+
+/* MODIFIED RULE BELOW */
+.links .forgot-link {
+    display: inline; /* Allows the link to flow with the preceding "Forgot " text */
+    color: #007bff;
+    text-decoration: none;
+    /* margin-bottom: 10px; /* Removed or commented out as it's less relevant for inline */
+}
+
+.links .forgot-link:hover,
+.links .signup-link:hover {
+    text-decoration: underline;
+}
+
+.links p {
+    margin: 0; /* You might want to adjust this if you need more space between the two <p> tags */
+              /* e.g., margin-bottom: 10px; on the first <p> or margin-top on the second */
+    color: #555;
+}
+
+.links .signup-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+</style>
+<body>
+    <div class="login-container">
+        <div class="login-form">
+            <h2>Login</h2>
+            <form action="#">
+                <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter email" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" placeholder="Enter password" required>
+                </div>
+                <div class="input-group-inline">
+                    <input type="checkbox" id="show-password" onclick="togglePasswordVisibility()">
+                    <label for="show-password" class="checkbox-label">Show Password</label>
+                </div>
+                <button type="submit" class="btn-signin">SIGN IN</button>
+                <div class="links">
+                    <p>Forgot <a href="#" class="forgot-link">Username / Password?</a></p>
+                    <p>Don't have an account? <a href="#" class="signup-link">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+<script>
+ function togglePasswordVisibility() {
+            var passwordField = document.getElementById("password");
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+</script>
+
+</body>
+</html>
+
+
