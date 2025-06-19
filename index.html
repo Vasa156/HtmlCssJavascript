@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>State & District Dropdown</title>
+  <style>
+    body {
+      font-family: Arial;
+      padding: 20px;
+    }
+    select {
+      padding: 10px;
+      width: 300px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Select State and District</h2>
+
+  <!-- State Dropdown -->
+  <label for="state">State:</label><br>
+  <select id="state" onchange="populateDistricts()">
+    <option value="">-- Select State --</option>
+    <option value="Tamil Nadu">Tamil Nadu</option>
+    <option value="Kerala">Kerala</option>
+    <option value="Karnataka">Karnataka</option>
+  </select><br>
+
+  <!-- District Dropdown -->
+  <label for="district">District:</label><br>
+  <select id="district">
+    <option value="">-- Select District --</option>
+  </select>
+
+  <script>
+    // State -> District mapping
+    const districtsByState = {
+      "Tamil Nadu": ["Chennai", "Coimbatore", "Madurai", "Salem"],
+      "Kerala": ["Thiruvananthapuram", "Kochi", "Kozhikode"],
+      "Karnataka": ["Bangalore", "Mysore", "Mangalore"]
+    };
+
+    function populateDistricts() {
+      const stateSelect = document.getElementById("state");
+      const districtSelect = document.getElementById("district");
+      const selectedState = stateSelect.value;
+
+      // Clear existing districts
+      districtSelect.innerHTML = '<option value="">-- Select District --</option>';
+
+      if (selectedState && districtsByState[selectedState]) {
+        // Add new districts
+        const districts = districtsByState[selectedState];
+        districts.forEach(function(district) {
+          const option = document.createElement("option");
+          option.value = district;
+          option.textContent = district;
+          districtSelect.appendChild(option);
+        });
+      }
+    }
+  </script>
+
+</body>
+</html>
