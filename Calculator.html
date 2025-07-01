@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Calculator</title>
+</head>
+<style>
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial,Sans-Serif;
+}
+.calculator{
+    background-color: #000000;
+    padding: 25px;
+    border-radius: 10px ;
+}
+#result {
+    width: 300px;
+    padding: 10px;
+    border: 2px solid #98CD00;
+    box-sizing: border-box;
+    background-color: #98CD00;
+    border-radius: 5px;
+}
+.buttons button{
+    width: 20%;
+    padding: 10px;
+    margin: 5px;
+    font-size: 18px;
+    border-radius: 5px;
+}
+.operator{
+    background-color: #068FFF;
+    color: white;
+    border: 2px solid #068FFF;
+}
+.operator:hover{
+    background-color: #0065F8;
+}
+.clear{
+    background-color: #FC4100;
+    color: white;
+    border: 2px solid  #FC4100;
+}
+.clear:hover{
+    background-color: #FF0000;
+}
+.equal{
+    background-color: #6EC207;
+    color: white;
+    border: 2px solid #6EC207;
+}
+.equal:hover {
+    background-color: #65B741;
+}
+
+</style>
+<body>
+<div class="calculator">
+    
+    <input type="text" id="result" placeholder="0" readpnly><br><br>
+    <div class="buttons">
+        <button class="clear" onclick="clearResult()">C</button>
+        <button onclick="appendValue('1')">1</button>
+        <button onclick="appendValue('2')">2</button>
+        <button class="operator" onclick="appendValue('+')">+</button><br>
+    
+        <button onclick="appendValue('3')">3</button>
+        <button onclick="appendValue('4')">4</button>
+        <button onclick="appendValue('5')">5</button>
+        <button class="operator" onclick="appendValue('-')">-</button><br>
+    
+        <button onclick="appendValue('6')">6</button>
+        <button onclick="appendValue('7')">7</button>
+        <button onclick="appendValue('8')">8</button>
+        <button class="operator" onclick="appendValue('*')">*</button><br>
+    
+        <button onclick="appendValue('9')">9</button>
+        <button onclick="appendValue('0')">0</button>
+        <button class="equal" onclick="calculate()">=</button>
+        <button class="operator" onclick="appendValue('/')">/</button>
+    </div>    
+    
+</div>
+<script>
+//adding value to input box
+function appendValue(value){
+    document.getElementById("result").value += value;
+}
+//clear result
+function clearResult(){
+    document.getElementById("result").value = ""; 
+}
+
+//calculate expression
+function calculate(){
+    try{
+       document.getElementById("result").value = eval(document.getElementById("result").value); 
+    }catch{
+        alert("Invalid Expression");
+    }
+}
+
+</script>
+
+</body>
+</html>
